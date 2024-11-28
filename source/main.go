@@ -8,6 +8,7 @@ import (
 
 func main() {
 	// Debug: Check if accueil.html exists
+	http.HandleFunc("/hardore-gaming", start)
 	if _, err := os.Stat("source/web/accueil.html"); err != nil {
 		fmt.Println("accueil.html not found:", err)
 	} else {
@@ -23,4 +24,8 @@ func main() {
 
 	fmt.Println("Server is running at http://localhost:8080/")
 	http.ListenAndServe(":8080", nil)
+}
+
+func start() {
+	hang.test()
 }
