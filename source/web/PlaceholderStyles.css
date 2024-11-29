@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(https://wallpaperaccess.com/full/4944181.png);
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-background {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 5rem;
+    position : static;
+    top: 0;
+    background-color: darkorange;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    color: white;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-family: Impact, Charcoal, sans-serif;
+  }
+  
+  .hero-subtitle {
+    color: white;
+    margin: 0;
+  }
+  
+  .pendu{
+    display: flex;
+    justify-content: center;
+    width: 50vh;
+    height: 50vh;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .hangman-sprite {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+  }
+  
+  form {
+    color: red;
+  }
