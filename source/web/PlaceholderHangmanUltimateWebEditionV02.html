@@ -19,9 +19,11 @@
       <section class="pendu">
           <img src="https://media.makeameme.org/created/classic-placeholder.jpg" class="hangman-sprite">
       </section>
+      <p>Mot: {{.HiddenWord}}</p>
+      <p>Guess: {{.Name}}</p>
       <form method="post" action="adresse-cible" class="player-input"> <!-- placeholder pour la variable qui récupère la valeur -->
         <label for="entree">Message placeholder:</label> <!-- placeholder à remplcer par les messages peersonnalisés -->
-        <input type="text" name="cle-placeholder" id="entree">
+        <input type="text" id="name" name="name" required>
         <button type="submit">Envoyer</button>
       </form>
     </main>

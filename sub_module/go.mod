@@ -1,4 +1,4 @@
-module fonctions_du_pendu_web
+module functions
 
 go 1.23.1
 
