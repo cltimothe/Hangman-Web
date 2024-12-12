@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="placeholderStyles.css" />
+    <link rel="stylesheet" href="/static/PlaceholderStyles.css" />
     <title>Hangman Ultimate web edition</title>
   </head>
   <body>
@@ -19,11 +19,12 @@
       <section class="pendu">
           <img src="https://media.makeameme.org/created/classic-placeholder.jpg" class="hangman-sprite">
       </section>
+      <p>Vie:{{.Health}}</p>
       <p>Mot: {{.HiddenWord}}</p>
       <p>Guess: {{.Name}}</p>
-      <form method="post" action="adresse-cible" class="player-input"> <!-- placeholder pour la variable qui récupère la valeur -->
-        <label for="entree">Message placeholder:</label> <!-- placeholder à remplcer par les messages peersonnalisés -->
-        <input type="text" id="name" name="name" required>
+      <form method="post" action="hardcore-gaming" class="player-input"> <!-- placeholder pour la variable qui récupère la valeur -->
+        <label for="entree" >Message placeholder:</label> <!-- placeholder à remplcer par les messages peersonnalisés -->
+        <input type="text" id="name" name="name" autocomplete="off" required>
         <button type="submit">Envoyer</button>
       </form>
     </main>

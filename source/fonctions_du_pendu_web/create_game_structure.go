@@ -1,13 +1,18 @@
 package fonctions_du_pendu_web
 
-import fdp "github.com/CookieG77/hangman/functions"
+import (
+	"fonctions_du_pendu_web/source/hang"
 
-// Fonction qui crée la structure du jeu avec fdp
-func CreateGameStructure(Game fdp.GameData) fdp.GameData {
+	fdp "github.com/CookieG77/hangman/functions"
+)
+
+// Fonction qui crée la structure du jeu avec le package Fonctions Du Pendu
+func CreateGameStructure(Game hang.GameData) hang.GameData {
 	var hidden string
-	wordList := fdp.ReadWordFile("source/resource/wordListUltimate.txt")
-	randomWord := fdp.GetRandomWord(wordList)
-	Game = fdp.CreateGameStructure(10, hidden, randomWord)
-	fdp.CreateInvisibleWord(&Game)
+	Letter_list = nil
+	wordList := fdp.ReadWordFile("source/resource/wordListUltimate.txt") // Crée la liste de mots
+	randomWord := fdp.GetRandomWord(wordList)                            // Recupère un mot aléatoire dans la liste de mots
+	Game = hang.CreateGameStructure(10, hidden, randomWord)              // Crée la structure du jeu
+	hang.CreateInvisibleWord(&Game)                                      // Crée le mot invisible
 	return Game
 }
