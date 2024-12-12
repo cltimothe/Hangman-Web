@@ -1,13 +1,32 @@
 <!DOCTYPE html>
-<html lang="fr">    
+<html lang="fr">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet" />
-    <title>Accueil hangman</title>   
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/accueilStyles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Hangman Ultimate web edition</title>
   </head>
   <body>
-    <h1>Welcome to Hangman-Web!</h1>
-    <p>Cliquez <a href="/hardcore-gaming">ici</a> pour démarrer le jeu</p>
+    <header class="hero">
+      <div class="hero-background">
+        <h1 class="hero-title">
+          <span>Hangman</span> <span>Ultimate</sapn>
+        </h1>
+        <h2 class="hero-subtitle">web edition</h2>
+      </div>
+    </header>
+   <h1 class="welcome">Welcome to Hangman-Web!</h1>
+    <form class="selection" type="post" action=""> <!--Ici dans action pour lier le form--> 
+      <p>Lancer le jeu en 
+        <select class="selection" required>
+          <option class="easy" value="easy">Facile</option>
+          <option class="medium" value="medium">Moyen</option>
+          <option class="hardcore" value="hardcore">HARDCORE</option>
+        </select>
+      </p>
+      <button type="submit">Jouer</button>
+    </form>
   </body>
 </html>
