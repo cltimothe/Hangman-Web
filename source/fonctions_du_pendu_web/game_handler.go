@@ -18,9 +18,9 @@ func GamePage(w http.ResponseWriter, r *http.Request) {
 	}
 	// Les Données dynamique de la page
 	data := PageData{
-		Word:       "", // Example value for the word
-		HiddenWord: "", // Example hidden word
-		Health:     "", // Example hidden word
+		Word:       "", // Mot à trouver
+		HiddenWord: "", // Mot cacher
+		Health:     "", // Vie
 	}
 	if r.Method == http.MethodPost {
 		err := r.ParseForm()
@@ -29,15 +29,15 @@ func GamePage(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		// Mettre a jour la page avec l'input du joueur
-		input := r.FormValue("name")
+		input := r.FormValue("Input")
 		var res string
 		if len(input) > 0 {
 			res = hang.CheckPlayerInput(&Game, &input, &Letter_list)
 			hang.GameStrucSetHidden(&Game, res)
 		}
-		fmt.Println(Letter_list)
+		fmt.Println(Letter_list, Game)
 
-		data.Name = input
+		data.Input = input
 
 		if res == hang.GameStrucGetWord(Game) {
 			http.Redirect(w, r, "/win", http.StatusSeeOther)
@@ -48,7 +48,7 @@ func GamePage(w http.ResponseWriter, r *http.Request) {
 	data.HiddenWord = hang.GameStrucGetHidden(Game)
 	data.Health = strconv.Itoa(hang.GameStrucGetHealth(Game))
 
-	// Verifie la vie du joueur
+	// Verifie la vie du joueur et renvoi sur la page de gameover si mort
 	pl_health := hang.GameStrucGetHealth(Game)
 	if pl_health <= 0 {
 		http.Redirect(w, r, "/gameover", http.StatusSeeOther)

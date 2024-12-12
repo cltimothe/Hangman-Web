@@ -233,9 +233,9 @@ func GetPlayerInput(game *GameData, playing *bool, words []string, asciiArt []st
 }
 
 func CheckPlayerInput(game *GameData, input *string, letter_list *[]string) string {
-	*input = NormalizeText(strings.ToLower(*input), accents) // Retire les accents
+	*input = NormalizeText(strings.ToLower(*input), accents) // Retire les accents et met en minuscule
 	res := PlaceLetterInWord(game, *input)
-	if contains(*letter_list, *input) {
+	if ContainsString(*letter_list, *input) {
 		return res
 	}
 	// Vérifie si l'input est dans le mot
@@ -244,7 +244,9 @@ func CheckPlayerInput(game *GameData, input *string, letter_list *[]string) stri
 			(*game).health -= 1
 		}
 	} else {
-		if res != (*game).word {
+		if *input == (*game).word {
+			return *input
+		} else {
 			(*game).health -= 2
 		}
 	}
@@ -253,7 +255,7 @@ func CheckPlayerInput(game *GameData, input *string, letter_list *[]string) stri
 }
 
 // Vérifie si l'element str est présent dans la liste s (string)
-func contains(s []string, str string) bool {
+func ContainsString(s []string, str string) bool {
 	for _, v := range s {
 		if v == str {
 			return true
@@ -261,6 +263,16 @@ func contains(s []string, str string) bool {
 	}
 
 	return false
+}
+
+// Function qui recupère les lettres déjà révélé dans le mot et les
+// ajoute a la liste letter_list
+func GetRevealedLetters(game *GameData, letter_list *[]string) {
+	for _, c := range (*game).hidden {
+		if c != ' ' && c != '_' {
+			*letter_list = append(*letter_list, string(c))
+		}
+	}
 }
 
 // Fonction pour vérifier si la lettre entrée est déjà révélé dans le mot

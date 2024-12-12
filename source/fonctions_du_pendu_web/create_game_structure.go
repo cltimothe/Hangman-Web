@@ -14,5 +14,6 @@ func CreateGameStructure(Game hang.GameData) hang.GameData {
 	randomWord := fdp.GetRandomWord(wordList)                            // Recupère un mot aléatoire dans la liste de mots
 	Game = hang.CreateGameStructure(10, hidden, randomWord)              // Crée la structure du jeu
 	hang.CreateInvisibleWord(&Game)                                      // Crée le mot invisible
+	hang.GetRevealedLetters(&Game, &Letter_list)                         // Recupère les lettres déjà révélé
 	return Game
 }

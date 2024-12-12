@@ -12,7 +12,7 @@ import (
 type PageData struct {
 	Word       string
 	HiddenWord string
-	Name       string
+	Input      string
 	Health     string
 }
 

@@ -8,6 +8,7 @@
   </head>
   <body>
     <header class="hero">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
       <div class="hero-background">
         <h1 class="hero-title">
           <span>Hangman</span> <span>Ultimate</sapn>
@@ -21,7 +22,7 @@
       </section>
       <p>Vie:{{.Health}}</p>
       <p>Mot: {{.HiddenWord}}</p>
-      <p>Guess: {{.Name}}</p>
+      <p>Guess: {{.Input}}</p>
       <form method="post" action="hardcore-gaming" class="player-input"> <!-- placeholder pour la variable qui récupère la valeur -->
         <label for="entree" >Message placeholder:</label> <!-- placeholder à remplcer par les messages peersonnalisés -->
         <input type="text" id="name" name="name" autocomplete="off" required>
