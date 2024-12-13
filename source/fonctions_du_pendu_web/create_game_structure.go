@@ -10,10 +10,10 @@ import (
 func CreateGameStructure(Game hang.GameData) hang.GameData {
 	var hidden string
 	Letter_list = nil
-	wordList := fdp.ReadWordFile("source/resource/wordListUltimate.txt") // Crée la liste de mots
-	randomWord := fdp.GetRandomWord(wordList)                            // Recupère un mot aléatoire dans la liste de mots
-	Game = hang.CreateGameStructure(10, hidden, randomWord)              // Crée la structure du jeu
-	hang.CreateInvisibleWord(&Game)                                      // Crée le mot invisible
-	hang.GetRevealedLetters(&Game, &Letter_list)                         // Recupère les lettres déjà révélé
+	wordList := fdp.ReadWordFile(Difficulty)                // Crée la liste de mots
+	randomWord := fdp.GetRandomWord(wordList)               // Recupère un mot aléatoire dans la liste de mots
+	Game = hang.CreateGameStructure(10, hidden, randomWord) // Crée la structure du jeu
+	hang.CreateInvisibleWord(&Game)                         // Crée le mot invisible
+	hang.GetRevealedLetters(&Game, &Letter_list)            // Recupère les lettres déjà révélé
 	return Game
 }

@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"fonctions_du_pendu_web/source/hang"
 	"net/http"
-	"strconv"
 	"text/template"
 )
 
@@ -20,7 +19,7 @@ func GamePage(w http.ResponseWriter, r *http.Request) {
 	data := PageData{
 		Word:       "", // Mot à trouver
 		HiddenWord: "", // Mot cacher
-		Health:     "", // Vie
+		Health:     10, // Vie
 	}
 	if r.Method == http.MethodPost {
 		err := r.ParseForm()
@@ -29,7 +28,7 @@ func GamePage(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		// Mettre a jour la page avec l'input du joueur
-		input := r.FormValue("Input")
+		input := r.FormValue("input")
 		var res string
 		if len(input) > 0 {
 			res = hang.CheckPlayerInput(&Game, &input, &Letter_list)
@@ -46,7 +45,7 @@ func GamePage(w http.ResponseWriter, r *http.Request) {
 	}
 	data.Word = hang.GameStrucGetWord(Game)
 	data.HiddenWord = hang.GameStrucGetHidden(Game)
-	data.Health = strconv.Itoa(hang.GameStrucGetHealth(Game))
+	data.Health = hang.GameStrucGetHealth(Game)
 
 	// Verifie la vie du joueur et renvoi sur la page de gameover si mort
 	pl_health := hang.GameStrucGetHealth(Game)

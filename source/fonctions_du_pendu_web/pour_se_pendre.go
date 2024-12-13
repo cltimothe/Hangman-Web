@@ -13,25 +13,25 @@ type PageData struct {
 	Word       string
 	HiddenWord string
 	Input      string
-	Health     string
+	Health     int
 }
 
 var Game hang.GameData
 
 var Letter_list []string
 
+var Difficulty string = "medium"
+
 // Fonction qui fait ce que devrait faire le main (lancement du jeu) mais pas dans
 // le main parce que sinon c'est pas jolie.
 func Launch() {
-	// Crée la structure du jeu (hp, mot, mot caché)
-	Game = CreateGameStructure(Game)
-
 	// Support du fichier css
 	fs := http.FileServer(http.Dir("./source/web"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	// Lie les pages a une fonction
 	http.HandleFunc("/", launchHomePage)
+	http.HandleFunc("/start-game", difficultyHandler)
 	http.HandleFunc("/hardcore-gaming", launchGamePage)
 	http.HandleFunc("/gameover", launchGameoverPage)
 	http.HandleFunc("/win", launchWinPage)
@@ -64,4 +64,13 @@ func launchWinPage(w http.ResponseWriter, r *http.Request) {
 // Charge la page de Défaite
 func launchGameoverPage(w http.ResponseWriter, r *http.Request) {
 	GameoverPage(w, r)
+}
+
+func difficultyHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method == http.MethodPost {
+		Difficulty = r.FormValue("difficulty")
+		Difficulty = "source/resource/" + Difficulty + ".txt"
+		Game = CreateGameStructure(Game) // Crée la structure du jeu (hp, mot, mot caché)
+		launchGamePage(w, r)
+	}
 }

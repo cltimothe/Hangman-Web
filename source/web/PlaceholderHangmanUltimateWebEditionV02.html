@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/static/PlaceholderStyles.css" />
+    <link rel="stylesheet" href="/static/cssArt.css" />
     <title>Hangman Ultimate web edition</title>
   </head>
   <body>
@@ -17,15 +18,83 @@
       </div>
     </header>
     <main>
-      <section class="pendu">
-          <img src="https://media.makeameme.org/created/classic-placeholder.jpg" class="hangman-sprite">
-      </section>
+      <div class="hangman">
+        {{if le .Health 10}}
+          <div class="ground"></div>
+        {{end}}
+          <div class="gallows">
+          {{if le .Health 9}}
+            <div id="base-bottom"></div>
+            <div id="base-left"></div>
+            <div id="base-right"></div>
+          {{end}}
+            {{if le .Health 8}}
+              <div id="pole"></div>
+            {{end}}
+            {{if le .Health 7}}
+              <div id="beam"></div>
+              <div id="beam-support"></div>
+            {{end}}
+            {{if le .Health 6}}
+              <div class="gallow-rope">
+                <div id="top-knot1"></div>
+                <div id="top-knot2"></div>
+                <div id="top-knot3"></div>
+              </div>
+            {{end}}
+          </div>
+        <div class="sway">
+          {{if le .Health 6}}
+            <div class="hanging-rope">
+              <div class="loop">
+                <div id="loop-bottom"></div>
+                <div id="loop-left"></div>
+                <div id="loop-right"></div>
+              </div>
+              <div class="knot">
+                <div id="loose-rope"></div>
+                <div id="knot1"></div>
+                <div id="knot2"></div>
+                <div id="knot3"></div>
+              </div>
+            </div>
+          {{end}}
+          {{if le .Health 5}}
+            <div class="jose">
+                <div class="head"></div>
+              {{if le .Health 4}}
+                <div class="body">
+                  <div id="upper-body"></div>
+                  <div id="lower-body"></div>
+                </div>
+              {{end}}
+              {{if le .Health 3}}
+                <div class="arms">
+                  <div id="arm-left"></div>
+                {{if le .Health 2}}
+                  <div id="arm-right"></div>
+                {{end}}
+                </div>
+              {{end}}
+              
+              {{if le .Health 1}}
+                <div class="legs">
+                  <div id="leg-left"></div>
+                {{if le .Health 0}}
+                  <div id="leg-right"></div>
+                {{end}}
+                </div>
+              {{end}}
+            </div>
+          {{end}}
+        </div>
+      </div>
       <p>Vie:{{.Health}}</p>
       <p>Mot: {{.HiddenWord}}</p>
       <p>Guess: {{.Input}}</p>
       <form method="post" action="hardcore-gaming" class="player-input"> <!-- placeholder pour la variable qui récupère la valeur -->
         <label for="entree" >Message placeholder:</label> <!-- placeholder à remplcer par les messages peersonnalisés -->
-        <input type="text" id="name" name="name" autocomplete="off" required>
+        <input type="text" id="input" name="input" autocomplete="off" required>
         <button type="submit">Envoyer</button>
       </form>
     </main>
