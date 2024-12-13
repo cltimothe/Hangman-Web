@@ -7,9 +7,9 @@ import (
 	"text/template"
 )
 
-// J'ai le droit de mettre cette fonction ici parce que je suis pas dans le main.
-// Sinon la fonction sert a (re)charger la page.
+// Fonction qui gère le jeu. (Page dynamique)
 func GamePage(w http.ResponseWriter, r *http.Request) {
+	// Chargment du Template
 	tmpl, err := template.ParseFiles("source/web/PlaceholderHangmanUltimateWebEditionV02.html")
 	if err != nil {
 		http.Error(w, "Error loading template", http.StatusInternalServerError)
@@ -21,21 +21,27 @@ func GamePage(w http.ResponseWriter, r *http.Request) {
 		HiddenWord: "", // Mot cacher
 		Health:     10, // Vie
 	}
+	// Vérifie si le joueur a entré une valeur
 	if r.Method == http.MethodPost {
 		err := r.ParseForm()
 		if err != nil {
 			http.Error(w, "Unable to process form data", http.StatusBadRequest)
 			return
 		}
-		// Mettre a jour la page avec l'input du joueur
+		// Recupère l'entré du Joueur
 		input := r.FormValue("input")
 		var res string
 		if len(input) > 0 {
+			// Fonction qui gère le jeu (expliqué si on passe notre curseur sur la fonction)
 			res = hang.CheckPlayerInput(&Game, &input, &Letter_list)
+
+			// Met a jour le mot caché
 			hang.GameStrucSetHidden(&Game, res)
 		}
+		// Debug/Test
 		fmt.Println(Letter_list, Game)
 
+		// Met a jour la valeur "Input" de la page avec l'entré du joueur
 		data.Input = input
 
 		if res == hang.GameStrucGetWord(Game) {
@@ -43,6 +49,7 @@ func GamePage(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	}
+	// Met à jour la page avec les nouvelles valeurs
 	data.Word = hang.GameStrucGetWord(Game)
 	data.HiddenWord = hang.GameStrucGetHidden(Game)
 	data.Health = hang.GameStrucGetHealth(Game)
@@ -53,7 +60,7 @@ func GamePage(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/gameover", http.StatusSeeOther)
 		return
 	}
-	// Render the template with the dynamic data
+	// Lance la page
 	err = tmpl.Execute(w, data)
 	if err != nil {
 		http.Error(w, "Error rendering template", http.StatusInternalServerError)

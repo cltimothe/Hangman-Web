@@ -232,6 +232,9 @@ func GetPlayerInput(game *GameData, playing *bool, words []string, asciiArt []st
 	return res
 }
 
+// Recupère l'entré et le compare avec le mot à trouver
+// Retire 1 ou 2 vie si l'entré n'est pas de mot
+// Sinon place l'entré dans le mot caché
 func CheckPlayerInput(game *GameData, input *string, letter_list *[]string) string {
 	*input = NormalizeText(strings.ToLower(*input), accents) // Retire les accents et met en minuscule
 	res := PlaceLetterInWord(game, *input)

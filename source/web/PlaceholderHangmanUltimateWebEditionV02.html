@@ -89,11 +89,11 @@
           {{end}}
         </div>
       </div>
-      <p>Vie:{{.Health}}</p>
+      <p>Vie(s): {{.Health}}</p>
       <p>Mot: {{.HiddenWord}}</p>
       <p>Guess: {{.Input}}</p>
-      <form method="post" action="hardcore-gaming" class="player-input"> <!-- placeholder pour la variable qui récupère la valeur -->
-        <label for="entree" >Message placeholder:</label> <!-- placeholder à remplcer par les messages peersonnalisés -->
+      <form method="post" action="hardcore-gaming" class="player-input" >
+        <label for="entree" >Entrez une lettre:</label>
         <input type="text" id="input" name="input" autocomplete="off" required>
         <button type="submit">Envoyer</button>
       </form>
