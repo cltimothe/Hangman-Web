@@ -18,15 +18,16 @@
       </div>
     </header>
    <h1 class="welcome">Welcome to Hangman-Web!</h1>
-    <form class="selection" type="post" action=""> <!--Ici dans action pour lier le form--> 
-      <p>Lancer le jeu en 
-        <select class="selection" required>
-          <option class="easy" value="easy">Facile</option>
-          <option class="medium" value="medium">Moyen</option>
-          <option class="hardcore" value="hardcore">HARDCORE</option>
-        </select>
-      </p>
-      <button type="submit">Jouer</button>
-    </form>
+   <form class="selection" method="post" action=""> <!-- Ajoutez une URL ou un script côté serveur dans "action" -->
+    <p>
+      Lancer le jeu en 
+      <select class="selection" name="difficulty" required>
+        <option class="easy" value="easy">Facile</option>
+        <option class="medium" value="medium">Moyen</option>
+        <option class="hardcore" value="hardcore">HARDCORE</option>
+      </select>
+    </p>
+    <button type="submit">Jouer</button>
+  </form>  
   </body>
 </html>
