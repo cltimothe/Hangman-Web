@@ -1,0 +1,82 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Hangman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="hangman">
+      {{if le .Health 10}}
+        <div class="ground"></div>
+      {{end}}
+      {{if le .Health 9}}
+        <div class="gallows">
+          <div id="base-bottom"></div>
+          <div id="base-left"></div>
+          <div id="base-right"></div>
+          {{if le .Health 9}}
+            <div id="pole"></div>
+          {{end}}
+          {{if le .Health 8}}
+            <div id="beam"></div>
+            <div id="beam-support"></div>
+          {{end}}
+          {{if le .Health 7}}
+            <div class="gallow-rope">
+              <div id="top-knot1"></div>
+              <div id="top-knot2"></div>
+              <div id="top-knot3"></div>
+            </div>
+          {{end}}
+        </div>
+      {{end}}
+      <div class="sway">
+        {{if le .Health 7}}
+          <div class="hanging-rope">
+            <div class="loop">
+              <div id="loop-bottom"></div>
+              <div id="loop-left"></div>
+              <div id="loop-right"></div>
+            </div>
+            <div class="knot">
+              <div id="loose-rope"></div>
+              <div id="knot1"></div>
+              <div id="knot2"></div>
+              <div id="knot3"></div>
+            </div>
+          </div>
+        {{end}}
+        {{if le .Health 6}}
+          <div class="jose">
+            {{if le .Health 5}}
+              <div class="head"></div>
+            {{end}}
+            {{if le .Health 4}}
+              <div class="body">
+                <div id="upper-body"></div>
+                <div id="lower-body"></div>
+              </div>
+            {{end}}
+            {{if le .Health 3}}
+              <div class="arms">
+                <div id="arm-left"></div>
+                {{if le .Health 2}}
+                <div id="arm-right"></div>
+                {{end}}
+              </div>
+            {{end}}
+            {{if le .Health 1}}
+              <div class="legs">
+                <div id="leg-left"></div>
+                {{if le .Health 0}}
+                <div id="leg-right"></div>
+                {{if le .Health 0}}
+              </div>
+            {{end}}
+          </div>
+        {{end}}
+      </div>
+    </div>
+  </body>
+ </html>
