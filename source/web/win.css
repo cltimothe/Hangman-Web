@@ -1,0 +1,59 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3c714908-5541-43ef-96ca-54e76993f016/dfd3kmx-d9e3ffcf-b1ef-4051-8cea-6bccf2aba562.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzNjNzE0OTA4LTU1NDEtNDNlZi05NmNhLTU0ZTc2OTkzZjAxNlwvZGZkM2tteC1kOWUzZmZjZi1iMWVmLTQwNTEtOGNlYS02YmNjZjJhYmE1NjIuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.PQaOD70QjPqRh6C0LyE2oOF5CbSvcMwELx_HC4nAYuY);
+  }
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+  }
+  
+  .hero-background {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 5rem;
+    position : fixed;
+    top: 0;
+    background-color: darkorange;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    color: white;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-family: Impact, Charcoal, sans-serif;
+  }
+  
+  .hero-subtitle {
+    color: white;
+    margin: 0;
+  }
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #222222;
+  font-size: 2rem;
+  font-family: 'Chakra Petch', sans-serif;
+  position: fixed;
+  margin: 0;
+  top: 5rem;
+  }
+
+#restart {
+  font-size: 3rem;
+}
