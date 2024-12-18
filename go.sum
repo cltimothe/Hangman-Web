@@ -1,5 +1,7 @@
 github.com/CookieG77/hangman v0.0.0-20241129100801-006cd807fb4e h1:SqDlMzYM6sEx3aSD19lx2A0QjoJNxQhRFXyqVX76mFo=
 github.com/CookieG77/hangman v0.0.0-20241129100801-006cd807fb4e/go.mod h1:8WY/bfh2LLT/9SQ1QIcfhTCSloy3Ycv8LYBTl14zhVM=
+github.com/CookieG77/hangman v0.0.0-20241218112141-4ec3d1cadf5c h1:qT7syKQmOyokUkPBQmIT1ZXUUXEv4eH5GjGmEdpAbBM=
+github.com/CookieG77/hangman v0.0.0-20241218112141-4ec3d1cadf5c/go.mod h1:8WY/bfh2LLT/9SQ1QIcfhTCSloy3Ycv8LYBTl14zhVM=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/ebitengine/oto/v3 v3.1.0 h1:9tChG6rizyeR2w3vsygTTTVVJ9QMMyu00m2yBOCch6U=

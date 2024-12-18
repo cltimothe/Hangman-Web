@@ -1,9 +1,10 @@
 package fonctions_du_pendu_web
 
 import (
-	"fonctions_du_pendu_web/source/hang"
 	"log"
 	"net/http"
+
+	fdp "github.com/CookieG77/hangman/functions"
 )
 
 // Rien de vulgaire btw, fdp = Fonctions du Pendu (≧∀≦)ゞ
@@ -16,7 +17,7 @@ type PageData struct {
 	Health     int
 }
 
-var Game hang.GameData
+var Game fdp.GameData
 
 var Letter_list []string
 
@@ -26,8 +27,9 @@ var Difficulty string = "medium"
 // le main parce que sinon c'est pas jolie.
 func Launch() {
 	// Support du fichier css
-	fs := http.FileServer(http.Dir("./source/web"))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./source/web"))))
+	// Support des images
+	http.Handle("/static/resource/", http.StripPrefix("/static/resource/", http.FileServer(http.Dir("./source/resource/"))))
 
 	// Lie les pages a une fonction
 	http.HandleFunc("/", launchHomePage)
@@ -66,6 +68,7 @@ func launchGameoverPage(w http.ResponseWriter, r *http.Request) {
 	GameoverPage(w, r)
 }
 
+// Choix de la difficulté
 func difficultyHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
 		Difficulty = r.FormValue("difficulty")

@@ -2,7 +2,7 @@ module fonctions_du_pendu_web
 
 go 1.23.1
 
-require github.com/CookieG77/hangman v0.0.0-20241129100801-006cd807fb4e
+require github.com/CookieG77/hangman v0.0.0-20241218112141-4ec3d1cadf5c
 
 require (
 	github.com/ebitengine/oto/v3 v3.1.0 // indirect

@@ -84,8 +84,18 @@
     background-color: #444444;
     font-size: 1.25rem;
     font-family: 'Chakra Petch', sans-serif;
+    border-color: #444444;
+    border-width: 0.25rem;
+    border-radius: 15%;
     
   }
   button:hover{
     background-color: #6c6c6c;
+    border-color: #6c6c6c;
+
+  }
+  input{
+    font-family: 'Poppins', sans-serif;
+    height: 2rem;
+    font-size: large;
   }
